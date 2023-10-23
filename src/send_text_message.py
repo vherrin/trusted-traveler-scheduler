@@ -1,4 +1,6 @@
-# https://www.lifewire.com/how-to-email-a-text-4147467   This has the if
+# https://www.lifewire.com/how-to-email-a-text-4147467   This has the info on sending text message and carrier domains as well
+
+
 # this will send an email that will inturn send a text message to your phone
 
 import smtplib
