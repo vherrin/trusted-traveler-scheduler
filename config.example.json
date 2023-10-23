@@ -5,5 +5,12 @@
   "notification_urls": [ "discord://id/token" ],
   "retrieval_interval": "5m",
   "start_appointment_time": "00:00",
-  "end_appointment_time": "23:59"
+  "end_appointment_time": "23:59",
+  "smtp_server": "YourSMTPServer",
+  "smtp_port": 587,
+  "smtp_username": "YourUserName",
+  "smtp_password": "YourPassword",
+  "email_from": "EmailFrom",
+  "email_to": "YOURPHONENUMBER@tmomail.net", // example 1234567890@tmomail.net or what your carrier uses example is tmobile 
+  "email_subject": "GLOBAL ENTRY"    // or whatever you want to call it
 }

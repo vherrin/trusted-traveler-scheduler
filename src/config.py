@@ -24,6 +24,14 @@ class Config:
         self.start_appointment_time = datetime(year=9999, month=12, day=31, hour=0, minute=0)
         self.end_appointment_time = datetime(year=9999, month=12, day=31, hour=23, minute=59)
        
+        self.smtp_server = ""
+        self.smtp_port = 0
+        self.smtp_username = ""
+        self.smtp_password = ""
+        self.email_from = ""
+        self.email_to = ""
+        self.email_subject = ""
+
         # Read the config file
         config = self._get_config()
         self.locations = self._get_locations()
@@ -146,6 +154,28 @@ class Config:
             except ValueError as err:
                 raise TypeError(err)
     
+        if "smtp_server" in config:
+            self.smtp_server = config["smtp_server"]
+  
+        if "smtp_port" in config:
+            self.smtp_port = config["smtp_port"]
+
+        if "smtp_username" in config:    
+            self.smtp_username = config["smtp_username"]
+
+        if "smtp_password" in config:        
+            self.smtp_password = config["smtp_password"]
+
+        if "email_from" in config:        
+            self.email_from = config["email_from"]
+
+        if "email_to" in config:            
+            self.email_to = config["email_to"]
+
+        if "email_subject" in config:            
+            self.email_subject = config["email_subject"]
+
+
     def convert_to_seconds(self, time: str) -> int:
         """
         Converts a time string to seconds.

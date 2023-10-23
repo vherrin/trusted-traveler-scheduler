@@ -1,6 +1,8 @@
 import time
 import sqlite3
 
+import pprint
+
 from typing import List
 
 from .schedule import Schedule
@@ -10,6 +12,8 @@ import requests
 from datetime import datetime
 
 from .config import Config
+
+from .send_text_message import send_email
 
 GOES_URL_FORMAT = "https://ttp.cbp.dhs.gov/schedulerapi/slots?orderBy=soonest&limit=500&locationId={0}&minimum=1"
 
@@ -159,6 +163,8 @@ class ScheduleRetriever:
             all_active_appointments = []
             for appointment in appointments:
                 if appointment["active"]:
+                    print("active appointment", "start time:", appointment["startTimestamp"], "end time:", appointment["endTimestamp"])
+                    send_email(self.config, pprint.pformat(appointment, indent=6))
                     schedule = self._evaluate_timestamp(
                         schedule, location_id, appointment["startTimestamp"]
                     )
